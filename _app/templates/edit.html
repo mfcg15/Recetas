@@ -1,0 +1,56 @@
+{% extends "recipes.html" %}
+{% block formulario%}
+    <form action="/edit_receta" method="post" class="background_color">
+        <h2 class="NewRecipe">Edit Recipe</h2>
+        {% with messages = get_flashed_messages(category_filter=['receta']) %}
+            {% if messages %}
+                <div class="alert alert-danger" style="margin: 5px 20px 5px 20px;" role="alert">
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <div class="form">
+            {% for x in receta %}
+            <input type="hidden" name="id" value="{{x.id}}">
+            <div class="con_p margin_right">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" name="name" value="{{x.name}}">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea class="form-control" rows="4" name="description">{{x.description}}</textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="instructions" class="form-label">Instructions:</label>
+                    <textarea class="form-control" rows="4" name="instructions">{{x.instructions}}</textarea>
+                </div>
+            </div>
+            <div class="con_p">
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date Made On:</label>
+                    <input type="date" class="form-control" name="date" value="{{x.date}}">
+                </div>
+                <label class="form-label">Under 30 Minutes ?</label>
+                <div class="form-check">
+                    <div class= "cheks">
+                        <div class="grupo_chek">
+                            <input class="form-check-input" type="radio" name="under" value="1"  {% if x.under == 1 %} checked {%endif %}>
+                            <label class="form-check-label" for="1" >Yes</label>
+                        </div>
+                        <div class="grupo_chek">
+                            <input class="form-check-input" type="radio" name="under" value="0"  {% if x.under == 0 %} checked  {% endif %}>
+                            <label class="form-check-label" for="0">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont_buton">
+                    <button type="submit" class="btn btn-primary">Edit Recipe</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </form>
+{% endblock %}

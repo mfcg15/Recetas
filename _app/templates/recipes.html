@@ -1,0 +1,77 @@
+{% extends "index.html" %}
+{% block body %}
+    <body>
+        <div class="encabezado">
+            <div class="d-flex justify-content-between align-items-center">
+                <div  class="col-6">
+                    {% for x in usuario %}
+                        <h1>Welcome {{x.first_name}} {{x.last_name}} !</h1>
+                    {% endfor %}
+                </div>
+                <div class="col-3"></div>
+                <div  class="col-3 d-flex justify-content-between align-items-center">
+                    <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+                    <a href="/logout" class="btn btn-info">Logout</a>
+                </div>                    
+            </div>
+        </div>
+        <div class="cont_formulario">
+            {% block formulario%}
+                <form action="/create_receta" method="post" class="background_color">
+                    <h2 class="NewRecipe">Add New Recipe</h2>
+                    {% with messages = get_flashed_messages(category_filter=['receta']) %}
+                        {% if messages %}
+                            <div class="alert alert-danger" style="margin: 5px 20px 5px 20px;" role="alert">
+                                {% for message in messages %}
+                                    <p>{{message}}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                    <div class="form">
+                        <div class="con_p margin_right">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name:</label>
+                                <input type="text" class="form-control" name="name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description:</label>
+                                <textarea class="form-control" rows="4" name="description"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="instructions" class="form-label">Instructions:</label>
+                                <textarea class="form-control" rows="4" name="instructions"></textarea>
+                            </div>
+                        </div>
+                        <div class="con_p">
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Date Made On:</label>
+                                <input type="date" class="form-control" name="date">
+                            </div>
+                            <label class="form-label">Under 30 Minutes ?</label>
+                            <div class="form-check">
+                                <div class= "cheks">
+                                    <div class="grupo_chek">
+                                        <input class="form-check-input" type="radio" name="under" value="1">
+                                        <label class="form-check-label" for="1" >Yes</label>
+                                    </div>
+                                    <div class="grupo_chek">
+                                        <input class="form-check-input" type="radio" name="under" value="0">
+                                        <label class="form-check-label" for="0">No</label>
+                                    </div>
+                                    <div class="grupo_chek" style="display: none;">
+                                        <input class="form-check-input"  type="radio" name="under" value="2" checked>
+                                        <label class="form-check-label" for="2" ></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cont_buton">
+                                <button type="submit" class="btn btn-primary">Add Recipe</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            {% endblock %}
+        </div>
+    </body>
+{% endblock %}

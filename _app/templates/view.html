@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+{% block body %}
+    <body>
+        <div class="encabezado">
+            <div class="d-flex justify-content-between align-items-center">
+                <div  class="col-6">
+                    {% for x in usuario %}
+                        <h1>Welcome {{x.first_name}} {{x.last_name}} !</h1>
+                    {% endfor %}
+                </div>
+                <div class="col-3"></div>
+                <div  class="col-3 d-flex justify-content-between align-items-center">
+                    <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+                    <a href="/logout" class="btn btn-info">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-14">
+                    <div class="c_informacion background_color">
+                        {% for x in receta %}
+                        <h2>{{x.name}}</h2>
+                        <p>Description: {{x.description}}</p>
+                        <p>Under 30 Minutos:
+                        {% if x.under == 1 %}
+                            Yes</p>
+                        {% else %}
+                            No</p>
+                        {% endif %}
+                        <p>Intructions: 
+                            <ul>
+                                {% for i in x.instructions.split("\n") %}
+                                <ol>{{i}}</ol>
+                                {% endfor %}
+                            </ul>
+                        </p>
+                        <p>Made On: {{x.date}}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+{% endblock %}

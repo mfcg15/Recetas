@@ -1,0 +1,116 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background_color
+{
+    background-color: #34393f;
+}
+
+.contenedor
+{
+    padding: 20px 20px 30px 20px;
+}
+
+.tituloRegistre
+{
+    color: #117be5;
+}
+
+.tituloLogin
+{
+    color: #2e9f4a;
+}
+
+form
+{
+    margin-top: 16px;
+}
+
+label
+{
+    color: white;
+}
+
+.encabezado
+{
+    padding: 40px 40px 0px 40px;
+}
+
+.cont_formulario
+{
+    padding: 0px 54px 0px 54px;
+}
+
+.NewRecipe
+{
+    color: #1c70e0;
+    padding: 20px 20px 0px 20px;
+}
+
+.form
+{
+    display: flex;
+}
+
+.con_p
+{
+    width: 25%;
+    padding: 10px 50px 10px 50px;
+}
+
+.cheks
+{
+    display: flex;
+}
+
+.cheks div
+{
+    margin-right: 70px;
+}
+
+.margin_right
+{
+    margin-right: 24%;
+}
+
+.cont_buton
+{
+    margin-top: 26px;
+}
+
+.c_informacion
+{
+    padding: 10px 30px 10px 30px;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
+.c_informacion p
+{
+    color: white;
+}
+
+.c_informacion h2
+{
+    color: #1c70e0;
+}
+
+.areRecipes
+{
+    font-size: 20px;
+    padding: 8px 54px 0px 54px;
+}
+
+.cont_table
+{
+    padding: 10px 54px 0px 54px; 
+}
+
+ol
+{
+    color: white;
+}
